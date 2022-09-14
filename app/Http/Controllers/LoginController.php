@@ -10,7 +10,7 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function verificacao(Request $request) {
+    public function verify(Request $request) {
         /*
         $request->validate([
             'email' => 'required|email|min:8|unique:logins',
@@ -18,5 +18,9 @@ class LoginController extends Controller
         ]);
         */
         return 'tudo ok';
+    }
+
+    public function register() {
+        return view('register');
     }
 }
