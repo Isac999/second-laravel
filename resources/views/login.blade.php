@@ -34,17 +34,22 @@
                         <label class="form-label" for="form2Example27">Password</label>
                     </div>
 
+                    <!-- Checkbox 
+                    <div class="form-check d-flex justify-content-start mb-4">
+                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                    <label class="form-check-label" for="form1Example3"> Remember password </label>
+                    </div>
+                    -->
                     <div class="pt-1 mb-4">
                         <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                     </div>
 
                     <a class="small text-muted" href="#!">Forgot password?</a>
-                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href= "{{ route('login.register') }}"
+                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href= "{{ route('register.index') }}"
                         style="color: #393f81;">Register here</a></p>
                     <a href="#!" class="small text-muted">Terms of use.</a>
                     <a href="#!" class="small text-muted">Privacy policy</a>
                     </form>
-
                 </div>
                 </div>
             </div>

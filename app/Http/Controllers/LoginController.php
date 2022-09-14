@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function login() {
+    public function index() {
         return view('login');
     }
 
@@ -18,9 +18,5 @@ class LoginController extends Controller
         ]);
         */
         return 'tudo ok';
-    }
-
-    public function register() {
-        return view('register');
-    }
+    } 
 }
