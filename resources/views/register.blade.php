@@ -15,17 +15,20 @@
                 <form action="" method="post">
                     @csrf
                     <div class="form-outline mb-4 text-left">
-                    <input type="email" id="email" class="form-control form-control-lg" />
+                    <input type="email" id="email" name="email" class="form-control form-control-lg" required/>
+                    {{ $errors->has('email') ? $errors->first('email') : '' }}
                     <label class="form-label" for="typeEmailX-2">Email</label>
                     </div>
 
                     <div class="form-outline mb-4 text-left">
                     <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                    {{ $errors->has('password') ? $errors->first('password') : '' }}
                     <label class="form-label" for="password">Password</label>
                     </div>
 
                     <div class="form-outline mb-4 text-left">
                     <input type="password" id="confirm-password" name="confirm-password" class="form-control form-control-lg" />
+                    {{ $errors->has('confirm-password') ? $errors->first('confirm-password') : '' }}
                     <label class="form-label" for="confirm-password">Confirm password</label>
                     </div>
 
