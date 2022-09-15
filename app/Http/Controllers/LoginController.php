@@ -14,12 +14,12 @@ class LoginController extends Controller
     public function verify(Request $request) {
         
         $feedback = [
-            'email' => 'O campo senha deve ter no mínimo 8 caracteres',
+            'email' => 'O campo email deve ter no mínimo 8 caracteres',
             'password' => 'O campo senha deve ter no mínimo 6 caracteres'
         ];
 
         $request->validate([
-            'email' => 'required|email|min:8|unique:logins',
+            'email' => 'required|email|min:8',
             'password' => 'required|min:6|max:25'
         ], $feedback);
 
@@ -31,8 +31,8 @@ class LoginController extends Controller
         
         if (isset($verify->email)) {
             session_start();
-            $_SESSION['email'] = $usuario->email;
-            return redirect()->route('app.admin');
+            $_SESSION['email'] = $verify->email;
+            return redirect()->route('app.index');
         } else {
             return redirect()->route('login.index');
         }

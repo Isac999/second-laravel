@@ -25,7 +25,7 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your admin account</h5>
 
                     <div class="form-outline mb-4">
-                        <input type="email" id="form2Example17" class="form-control form-control-lg" name="email"/>
+                        <input type="email" id="form2Example17" name='email' class="form-control form-control-lg" required/>
                         {{ $errors->has('email') ? $errors->first('email') : '' }}
                         <label class="form-label" for="form2Example17">Email address</label>
                     </div>

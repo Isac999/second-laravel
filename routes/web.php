@@ -12,4 +12,7 @@ Route::get('/register', [App\Http\Controllers\RegisterController::class, 'index'
 Route::post('/register', [App\Http\Controllers\RegisterController::class, 'createNewAccount'])
 ->name('register.index');
 
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index']);
+Route::prefix('/app')->group(function() {
+    Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])
+    ->name('app.index');
+});
