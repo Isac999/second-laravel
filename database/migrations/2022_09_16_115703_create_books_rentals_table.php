@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('books_rentals', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('book_id');
+            $table->integer('customer_id');
+            $table->date('date');
         });
     }
 
