@@ -11,14 +11,20 @@
             <table class="table table-striped">
                 <thead class="text-white font-weight-bold" style="background-color: #146176">
                     <tr>
-
-                            contenttttt
-
+                        @foreach($header as $line)
+                            <th> {{ $line }} </th>
+                        @endforeach
                     </tr>
                 </thead>
-
-                    rows render
-
+                <tbody>
+                    @foreach($query as $row)
+                        <tr>
+                            @foreach($header as $line)
+                                <td> {{ $row->$line }} </td>
+                            @endforeach
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </div>
