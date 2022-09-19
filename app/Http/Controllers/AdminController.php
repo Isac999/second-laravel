@@ -16,15 +16,11 @@ class AdminController extends Controller
         $header = Schema::getColumnListing('books');
         $header = array_diff($header, ['created_at', 'updated_at']);
 
-
         return view('admin', 
         [
             'query' => $query,
             'header' => $header
         ]);
-        /*
-        $header = Schema::getColumnListing('books');
-        print_r($header);
-        */
+
     }
 }
