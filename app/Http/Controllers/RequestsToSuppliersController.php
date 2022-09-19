@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\RequestToSuppliers;
+use App\Models\RequestsToSuppliers;
 use Illuminate\Support\Facades\Schema;
 
 class RequestsToSuppliersController extends Controller
