@@ -15,4 +15,6 @@ Route::post('/register', [App\Http\Controllers\RegisterController::class, 'creat
 Route::prefix('/app')->group(function() {
     Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])
     ->name('app.index');
+    Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'index'])
+    ->name('app.logout');
 });

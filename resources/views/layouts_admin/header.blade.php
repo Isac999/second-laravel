@@ -26,6 +26,6 @@
                 </li>
             </ul>
         </div>
-        <a class="navbar-brand text-white font-weight-bold" href="./src/Utils/Logout.php">Logout</a>
+        <a class="navbar-brand text-white font-weight-bold" href="{{ route('app.logout') }}">Logout</a>
     </div>
 </nav>
