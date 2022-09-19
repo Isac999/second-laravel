@@ -29,8 +29,6 @@
         </div>
     </div>
     <div class="row justify-content-center mb-5">
-
-                paginação
-
+        {{ $query->links("pagination::bootstrap-4") }}
     </div>
 @endsection

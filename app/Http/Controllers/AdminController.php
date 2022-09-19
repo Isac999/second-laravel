@@ -9,14 +9,22 @@ use Illuminate\Support\Facades\Schema;
 class AdminController extends Controller
 {
     public function index() {
+        
         $books = new Books();
-        $query = $books->all();
+        $query = $books->paginate(3);
         //dd($query);
         $header = Schema::getColumnListing('books');
+        $header = array_diff($header, ['created_at', 'updated_at']);
+
+
         return view('admin', 
         [
             'query' => $query,
             'header' => $header
         ]);
+        /*
+        $header = Schema::getColumnListing('books');
+        print_r($header);
+        */
     }
 }
