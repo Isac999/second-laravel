@@ -32,7 +32,7 @@ class LoginController extends Controller
         if (isset($verify->email)) {
             session_start();
             $_SESSION['email'] = $verify->email;
-            return redirect()->route('app.index');
+            return redirect()->route('admin.index');
         } else {
             return redirect()->route('login.index');
         }
