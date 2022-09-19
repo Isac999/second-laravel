@@ -21,6 +21,5 @@ class AdminController extends Controller
             'query' => $query,
             'header' => $header
         ]);
-
     }
 }
