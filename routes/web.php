@@ -12,21 +12,21 @@ Route::get('/register', [App\Http\Controllers\RegisterController::class, 'index'
 Route::post('/register', [App\Http\Controllers\RegisterController::class, 'createNewAccount'])
 ->name('register.index');
 
-Route::prefix('/app')->group(function() {
-    Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])
-    ->name('app.index');
+Route::prefix('/admin')->group(function() {
+    Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])
+    ->name('admin.index');
     Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'index'])
-    ->name('app.logout');
-    Route::get('/admin/books', [App\Http\Controllers\BooksController::class, 'index'])
-    ->name('app.index');
-    Route::get('/admin/customers', [App\Http\Controllers\CustomersController::class, 'index'])
-    ->name('app.index');
-    Route::get('/admin/books_rentals', [App\Http\Controllers\BooksRentalsController::class, 'index'])
-    ->name('app.index');
-    Route::get('/admin/libraries', [App\Http\Controllers\LibrariesController::class, 'index'])
-    ->name('app.index');
-    Route::get('/admin/requests_to_suppliers', [App\Http\Controllers\RequestsToSuppliersController::class, 'index'])
-    ->name('app.index');
-    Route::get('/admin/suppliers', [App\Http\Controllers\SuppliersController::class, 'index'])
-    ->name('app.index');
+    ->name('admin.logout');
+    Route::get('/books', [App\Http\Controllers\BooksController::class, 'index'])
+    ->name('admin.books');
+    Route::get('/customers', [App\Http\Controllers\CustomersController::class, 'index'])
+    ->name('admin.customers');
+    Route::get('/books_rentals', [App\Http\Controllers\BooksRentalsController::class, 'index'])
+    ->name('admin.booksRentals');
+    Route::get('/libraries', [App\Http\Controllers\LibrariesController::class, 'index'])
+    ->name('admin.libraries');
+    Route::get('/requests_to_suppliers', [App\Http\Controllers\RequestsToSuppliersController::class, 'index'])
+    ->name('admin.requestsToSuppliers');
+    Route::get('/suppliers', [App\Http\Controllers\SuppliersController::class, 'index'])
+    ->name('admin.suppliers');
 });
