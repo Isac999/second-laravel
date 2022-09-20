@@ -29,8 +29,8 @@
                                 <td> {{ $row->$line }} </td>
                             @endforeach
                             <td> 
-                                <button class='btn btn-info'>Edit</button>
-                                <button class='btn btn-danger ml-1'>Delete</button>
+                                <button class='btn btn-info' id='edit'>Edit</button>
+                                <button class='btn btn-danger ml-1' id='delete'>Delete</button>
                             </td>
                         </tr>
                     @endforeach
