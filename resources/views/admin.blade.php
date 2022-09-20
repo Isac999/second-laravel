@@ -14,6 +14,12 @@
                         @foreach($header as $line)
                             <th> {{ $line }} </th>
                         @endforeach
+                        <th colspan='2'>
+                            Action 
+                            <button type='button' class='btn btn-success ml-2' onclick='createBtn(".count($this->columns).")'>
+                                Add
+                            </button>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +28,10 @@
                             @foreach($header as $line)
                                 <td> {{ $row->$line }} </td>
                             @endforeach
+                            <td> 
+                                <button class='btn btn-info'>Edit</button>
+                                <button class='btn btn-danger ml-1'>Delete</button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
