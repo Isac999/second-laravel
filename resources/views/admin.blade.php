@@ -28,7 +28,7 @@
                             @foreach($header as $line)
                                 <td> {{ $row->$line }} </td>
                             @endforeach
-                            <td> 
+                            <td id='package'> 
                                 <button class='btn btn-info' id='edit'>Edit</button>
                                 <button class='btn btn-danger ml-1' id='delete'>Delete</button>
                             </td>

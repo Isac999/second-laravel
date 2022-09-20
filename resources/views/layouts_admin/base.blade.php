@@ -13,6 +13,9 @@
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
         }
+        input {
+            max-width: 100px;
+        }
     </style>
 </head>
 <body>
