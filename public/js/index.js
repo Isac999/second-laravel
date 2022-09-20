@@ -10,6 +10,11 @@ list_btn.forEach((element) => {
                 input.setAttribute('value', innerContent);
                 item.innerText = '';
                 item.appendChild(input);
+            } else {
+                let btn = document.createElement('button');
+                btn.setAttribute('class', 'btn btn-warning');
+                btn.innerText = 'Change';
+                (item.children)[0].replaceWith(btn);
             }
         }
     })
