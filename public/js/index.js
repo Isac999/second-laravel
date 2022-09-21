@@ -58,10 +58,9 @@ function createData(btn) {
             btnEdit.innerText = 'Edit';
 
             element.replaceChildren(btnEdit, btnDelete);
-
         }
     })
-    //sendDataCreated(listValues);
+    sendDataCreated(listValues);
 
 }
 
