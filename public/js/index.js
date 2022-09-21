@@ -24,9 +24,10 @@ add.addEventListener('click', (element) => {
 
     (newNode.lastElementChild).replaceChildren(btn);
     const listNodes = Array.from(newNode.children);
+    
     listNodes.forEach((td) => {
         if (td.id != 'package') {
-            td.innerHTML = '<input>';
+            td.innerHTML = '<input placeholder="type here">';
         }
     })
     tbody.appendChild(newNode);
