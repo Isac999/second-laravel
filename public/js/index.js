@@ -35,10 +35,33 @@ add.addEventListener('click', (element) => {
 })
 
 function createData(btn) {
+    let listValues = [];
     const tdList = ((btn.parentElement).parentElement).children;
+
     Array.from(tdList).forEach((element) => {
-        console.log(element);
+        if (element.id != 'package') {
+            let value = element.children[0].value;
+            listValues.push(value);
+ 
+            element.innerHTML = value;
+        } else {
+            const btnDelete = document.createElement('button');
+            btnDelete.setAttribute('class', 'btn btn-danger ml-1');
+            btnDelete.setAttribute('value', 'Delete');
+            btnDelete.setAttribute('id', 'delete');
+            btnDelete.innerText = 'Delete';
+
+            const btnEdit = document.createElement('button');
+            btnEdit.setAttribute('class', 'btn btn-info');
+            btnEdit.setAttribute('onclick', 'alterBtn(this)');
+            btnEdit.setAttribute('id', 'edit');
+            btnEdit.innerText = 'Edit';
+
+            element.replaceChildren(btnEdit, btnDelete);
+
+        }
     })
+    //sendDataCreated(listValues);
 
 }
 
@@ -91,4 +114,8 @@ function sendDataEdit(list) {
 
 function sendIdRemove(id) {
     console.log(id);
+}
+
+function sendDataCreated(list) {
+    console.log(list);
 }
