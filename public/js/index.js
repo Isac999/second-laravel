@@ -1,5 +1,4 @@
 function alterBtn(btn) {
-    //console.log(btn.parentElement)
     const row = (btn.parentElement).parentElement;
         
     for (item of Array.from(row?.children)) {
@@ -20,7 +19,6 @@ function alterBtn(btn) {
         
             (item.children)[0].replaceWith(btn);
             item.children[0].addEventListener('click', (item) => {
-                sendDataEdit(row);
 
                 let btn = document.createElement('button');
                 btn.setAttribute('class', 'btn btn-info');
@@ -29,26 +27,46 @@ function alterBtn(btn) {
                 btn.innerText = 'Edit';
                 
                 item.path[0].replaceWith(btn);
-
+                let list = [];
                 for (td of item.path[2].children) {
                     if (td.id != 'package') {
                         let value = td.children[0].value;
+                        list.push(value)
                         td.children[0].replaceWith(value);
                     }
                 }
+                sendDataEdit(list);
             })
         }
     }
 }
 
-function sendDataEdit(row) {
-    //console.log(row);
+function sendDataEdit(list) {
+    console.log(list);
 }
+
+function sendIdRemove(id) {
+    console.log(id);
+}
+
+const list_btn = document.querySelectorAll('#delete');
+list_btn.forEach((element) => {
+    element.addEventListener('click', (btn) => {
+        const value = window.confirm('Tem certeza que deseja remover este item da lista?');
+        if (value) {
+            const tr = btn.path[2];
+            const id = tr.firstElementChild.innerText;
+
+            tr.remove();
+            sendIdRemove(id);
+        }
+    })
+})
 /*
 alterEdit();
 
 function alterEdit() {
-    const list_btn = document.querySelectorAll('#edit');
+    
 
     list_btn.forEach((element) => {
         console.log(element);
