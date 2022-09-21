@@ -1,4 +1,5 @@
 const list_btn = document.querySelectorAll('#delete');
+const add = document.querySelector('#add');
 
 list_btn.forEach((element) => {
     element.addEventListener('click', (btn) => {
@@ -11,6 +12,24 @@ list_btn.forEach((element) => {
             sendIdRemove(id);
         }
     })
+})
+
+add.addEventListener('click', (element) => {
+    const tbody = document.querySelector('tbody');
+    const newNode = (tbody.lastElementChild).cloneNode(true);
+    const btn = document.createElement('button');
+
+    btn.setAttribute('class', 'btn btn-primary');
+    btn.innerText = 'Create';
+
+    (newNode.lastElementChild).replaceChildren(btn);
+    const listNodes = Array.from(newNode.children);
+    listNodes.forEach((td) => {
+        if (td.id != 'package') {
+            td.innerHTML = '<input>';
+        }
+    })
+    tbody.appendChild(newNode);
 })
 
 function alterBtn(btn) {

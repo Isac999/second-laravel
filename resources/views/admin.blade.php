@@ -16,7 +16,7 @@
                         @endforeach
                         <th colspan='2'>
                             Action 
-                            <button type='button' class='btn btn-success ml-2' onclick='createBtn(".count($this->columns).")'>
+                            <button type='button' class='btn btn-success ml-2' id='add'>
                                 Add
                             </button>
                         </th>

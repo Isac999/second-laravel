@@ -13,6 +13,19 @@
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
         }
+        input:-ms-input-placeholder  {
+        font-size:14px;
+        }
+        input::-webkit-input-placeholder {
+        font-size:14px;
+      }
+
+      input:-moz-placeholder {
+        font-size:14px;
+      }
+      input::-moz-placeholder {
+        font-size:14px;
+      }
     </style>
 </head>
 <body>
