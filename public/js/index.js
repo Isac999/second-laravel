@@ -36,7 +36,10 @@ add.addEventListener('click', (element) => {
 
 function createData(btn) {
     const tdList = ((btn.parentElement).parentElement).children;
-    console.log(tdList);
+    Array.from(tdList).forEach((element) => {
+        console.log(element);
+    })
+
 }
 
 function alterBtn(btn) {
