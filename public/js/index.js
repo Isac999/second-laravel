@@ -20,11 +20,12 @@ add.addEventListener('click', (element) => {
     const btn = document.createElement('button');
 
     btn.setAttribute('class', 'btn btn-primary');
+    btn.setAttribute('onclick', 'createData(this)');
     btn.innerText = 'Create';
 
     (newNode.lastElementChild).replaceChildren(btn);
     const listNodes = Array.from(newNode.children);
-    
+
     listNodes.forEach((td) => {
         if (td.id != 'package') {
             td.innerHTML = '<input placeholder="type here">';
@@ -32,6 +33,11 @@ add.addEventListener('click', (element) => {
     })
     tbody.appendChild(newNode);
 })
+
+function createData(btn) {
+    const tdList = ((btn.parentElement).parentElement).children;
+    console.log(tdList);
+}
 
 function alterBtn(btn) {
     const row = (btn.parentElement).parentElement;
