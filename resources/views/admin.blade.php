@@ -29,7 +29,7 @@
                                 <td> {{ $row->$line }} </td>
                             @endforeach
                             <td id='package'> 
-                                <button class='btn btn-info' id='edit'>Edit</button>
+                                <button class='btn btn-info' id='edit' onclick='alterBtn(this)'>Edit</button>
                                 <button class='btn btn-danger ml-1' id='delete'>Delete</button>
                             </td>
                         </tr>
