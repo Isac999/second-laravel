@@ -119,7 +119,7 @@ function sendIdRemove(id) {
         url = 'http://localhost:8000/admin/books/';
 
         const request = new XMLHttpRequest();
-        request.open('POST', url, true);
+        request.open('DELETE', url, true);
         request.setRequestHeader("Content-Type", "application/json");
         request.setRequestHeader('X-CSRF-Token', $('meta[name=csrf-token]').attr('content'));
         request.send(JSON.stringify(body)); 
