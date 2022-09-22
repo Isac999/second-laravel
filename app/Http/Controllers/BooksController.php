@@ -25,6 +25,7 @@ class BooksController extends Controller
 
     public function delete(Request $request) {
         $target = $request->id;
+        
         if ($target != null) {
             $books = new Books();
             $query = $books->find($target)->delete();

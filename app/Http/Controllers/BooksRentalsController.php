@@ -22,4 +22,13 @@ class BooksRentalsController extends Controller
             'header' => $header
         ]);
     }
+
+    public function delete(Request $request) {
+        $target = $request->id;
+        
+        if ($target != null) {
+            $booksRentals = new BooksRentals();
+            $query = $booksRentals->find($target)->delete();
+        }
+    }
 }

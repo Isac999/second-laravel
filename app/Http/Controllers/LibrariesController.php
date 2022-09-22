@@ -22,4 +22,13 @@ class LibrariesController extends Controller
             'header' => $header
         ]);
     }
+
+    public function delete(Request $request) {
+        $target = $request->id;
+        
+        if ($target != null) {
+            $libraries = new Libraries();
+            $query = $libraries->find($target)->delete();
+        }
+    }
 }

@@ -22,4 +22,13 @@ class CustomersController extends Controller
             'header' => $header
         ]);
     }
+
+    public function delete(Request $request) {
+        $target = $request->id;
+        
+        if ($target != null) {
+            $customers = new Customers();
+            $query = $customers->find($target)->delete();
+        }
+    }
 }

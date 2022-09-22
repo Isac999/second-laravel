@@ -22,4 +22,13 @@ class SuppliersController extends Controller
             'header' => $header
         ]);
     }
+
+    public function delete(Request $request) {
+        $target = $request->id;
+        
+        if ($target != null) {
+            $suppliers = new Suppliers();
+            $query = $suppliers->find($target)->delete();
+        }
+    }
 }
