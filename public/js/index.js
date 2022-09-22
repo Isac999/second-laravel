@@ -1,5 +1,12 @@
+let pathname = window.location.pathname.replace('/admin/', '');
+pathname = pathname == '' ? 'books' : pathname; 
+
+const targetColor = document.querySelector('#' + pathname);
 const list_btn = document.querySelectorAll('#delete');
 const add = document.querySelector('#add');
+
+targetColor.style.backgroundColor = 'rgb(8 8 8 / 39%)';
+targetColor.style.borderRadius = '3px';
 
 list_btn.forEach((element) => {
     element.addEventListener('click', (btn) => {
