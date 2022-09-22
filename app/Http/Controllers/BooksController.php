@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Schema;
 class BooksController extends Controller
 {
     public function index() {
-        
+
         $books = new Books();
         $query = $books->paginate(3);
-        //dd($query);
+
         $header = Schema::getColumnListing('books');
         $header = array_diff($header, ['created_at', 'updated_at']);
 
@@ -21,5 +21,13 @@ class BooksController extends Controller
             'query' => $query,
             'header' => $header
         ]);
+    }
+
+    public function delete(Request $request) {
+        $target = $request->id;
+        if ($target != null) {
+            $books = new Books();
+            $query = $books->find($target)->delete();
+        }
     }
 }

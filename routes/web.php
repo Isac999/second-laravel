@@ -19,6 +19,8 @@ Route::prefix('/admin')->group(function() {
     ->name('admin.logout');
     Route::get('/books', [App\Http\Controllers\BooksController::class, 'index'])
     ->name('admin.books');
+    Route::post('/books', [App\Http\Controllers\BooksController::class, 'delete'])
+    ->name('admin.books');
     Route::get('/customers', [App\Http\Controllers\CustomersController::class, 'index'])
     ->name('admin.customers');
     Route::get('/books_rentals', [App\Http\Controllers\BooksRentalsController::class, 'index'])
