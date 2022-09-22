@@ -116,7 +116,9 @@ function sendIdRemove(id) {
             'id': id
         };
 
-        url = 'http://localhost:8000/admin/books/';
+        let path = window.location.pathname == '/admin/' ? '/admin/books' : window.location.pathname;
+
+        url = 'http://localhost:8000' + path;
 
         const request = new XMLHttpRequest();
         request.open('DELETE', url, true);
