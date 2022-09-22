@@ -1,4 +1,4 @@
-let pathname = window.location.pathname.replace('/admin/', '');
+let pathname = window.location.pathname.replace('/admin/', '').replace('/admin', '');
 pathname = pathname == '' ? 'books' : pathname; 
 
 const targetColor = document.querySelector('#' + pathname);
