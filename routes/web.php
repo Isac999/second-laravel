@@ -22,29 +22,41 @@ Route::prefix('/admin')->group(function() {
     ->name('admin.books');
     Route::delete('/books', [App\Http\Controllers\BooksController::class, 'delete'])
     ->name('admin.books');
+    Route::post('/books', [App\Http\Controllers\BooksController::class, 'insert'])
+    ->name('admin.books');
 
     Route::get('/customers', [App\Http\Controllers\CustomersController::class, 'index'])
     ->name('admin.customers');
     Route::delete('/customers', [App\Http\Controllers\CustomersController::class, 'delete'])
+    ->name('admin.customers');
+    Route::post('/customers', [App\Http\Controllers\CustomersController::class, 'insert'])
     ->name('admin.customers');
 
     Route::get('/books_rentals', [App\Http\Controllers\BooksRentalsController::class, 'index'])
     ->name('admin.booksRentals');
     Route::delete('/books_rentals', [App\Http\Controllers\BooksRentalsController::class, 'delete'])
     ->name('admin.booksRentals');
+    Route::post('/books_rentals', [App\Http\Controllers\BooksRentalsController::class, 'insert'])
+    ->name('admin.booksRentals');
 
     Route::get('/libraries', [App\Http\Controllers\LibrariesController::class, 'index'])
     ->name('admin.libraries');
     Route::delete('/libraries', [App\Http\Controllers\LibrariesController::class, 'delete'])
+    ->name('admin.libraries');
+    Route::post('/libraries', [App\Http\Controllers\LibrariesController::class, 'insert'])
     ->name('admin.libraries');
 
     Route::get('/requests_to_suppliers', [App\Http\Controllers\RequestsToSuppliersController::class, 'index'])
     ->name('admin.requestsToSuppliers');
     Route::delete('/requests_to_suppliers', [App\Http\Controllers\RequestsToSuppliersController::class, 'delete'])
     ->name('admin.requestsToSuppliers');
+    Route::post('/requests_to_suppliers', [App\Http\Controllers\RequestsToSuppliersController::class, 'insert'])
+    ->name('admin.requestsToSuppliers');
 
     Route::get('/suppliers', [App\Http\Controllers\SuppliersController::class, 'index'])
     ->name('admin.suppliers');
     Route::delete('/suppliers', [App\Http\Controllers\SuppliersController::class, 'delete'])
+    ->name('admin.suppliers');
+    Route::post('/suppliers', [App\Http\Controllers\SuppliersController::class, 'insert'])
     ->name('admin.suppliers');
 });

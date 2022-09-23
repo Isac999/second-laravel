@@ -119,26 +119,43 @@ function sendDataEdit(list) {
 }
 
 function sendIdRemove(id) {
-        const body = {
-            'id': id
-        };
-
-        let path = window.location.pathname == '/admin/' ? '/admin/books' : window.location.pathname;
-
-        url = 'http://localhost:8000' + path;
-
-        const request = new XMLHttpRequest();
-        request.open('DELETE', url, true);
-        request.setRequestHeader("Content-Type", "application/json");
-        request.setRequestHeader('X-CSRF-Token', $('meta[name=csrf-token]').attr('content'));
-        request.send(JSON.stringify(body)); 
-
-        request.onload = function() {
-            console.log(this.responseText);
-        }
-        return request.responseText;
+    const body = {
+        'id': id
     };
 
+    let path = window.location.pathname == '/admin/' ? '/admin/books' : window.location.pathname;
+
+    url = 'http://localhost:8000' + path;
+
+    const request = new XMLHttpRequest();
+    request.open('DELETE', url, true);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.setRequestHeader('X-CSRF-Token', $('meta[name=csrf-token]').attr('content'));
+    request.send(JSON.stringify(body)); 
+
+    request.onload = function() {
+        console.log(this.responseText);
+    }
+    return request.responseText;
+};
+
 function sendDataCreated(list) {
-    console.log(list);
+    const body = {
+        'listData': list
+    };
+
+    let path = window.location.pathname == '/admin/' ? '/admin/books' : window.location.pathname;
+
+    url = 'http://localhost:8000' + path;
+
+    const request = new XMLHttpRequest();
+    request.open('POST', url, true);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.setRequestHeader('X-CSRF-Token', $('meta[name=csrf-token]').attr('content'));
+    request.send(JSON.stringify(body)); 
+
+    request.onload = function() {
+        console.log(this.responseText);
+    }
+    return request.responseText;
 }
