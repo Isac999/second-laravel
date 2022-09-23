@@ -31,4 +31,15 @@ class BooksRentalsController extends Controller
             $query = $booksRentals->find($target)->delete();
         }
     }
+
+    public function insert(Request $request) {
+        $booksRentals = new BooksRentals();
+
+        foreach ($request->listData as $item) {
+            $column = $item[0];
+            $value = $item[1];
+            $booksRentals->$column = $value;            
+        }
+        $booksRentals->save();
+    }
 }

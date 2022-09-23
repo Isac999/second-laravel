@@ -31,4 +31,15 @@ class CustomersController extends Controller
             $query = $customers->find($target)->delete();
         }
     }
+
+    public function insert(Request $request) {
+        $customers = new Customers();
+
+        foreach ($request->listData as $item) {
+            $column = $item[0];
+            $value = $item[1];
+            $customers->$column = $value;            
+        }
+        $customers->save();
+    }
 }

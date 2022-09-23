@@ -10,8 +10,8 @@ class RequestsToSuppliersController extends Controller
 {
     public function index() {
         
-        $books = new RequestsToSuppliers();
-        $query = $books->paginate(3);
+        $requestsToSuppliers = new RequestsToSuppliers();
+        $query = $requestsToSuppliers->paginate(3);
         //dd($query);
         $header = Schema::getColumnListing('requests_to_suppliers');
         $header = array_diff($header, ['created_at', 'updated_at']);
@@ -30,5 +30,16 @@ class RequestsToSuppliersController extends Controller
             $requestsToSuppliers = new RequestsToSuppliers();
             $query = $requestsToSuppliers->find($target)->delete();
         }
+    }
+
+    public function insert(Request $request) {
+        $requestsToSuppliers = new RequestsToSuppliers();
+
+        foreach ($request->listData as $item) {
+            $column = $item[0];
+            $value = $item[1];
+            $requestsToSuppliers->$column = $value;            
+        }
+        $requestsToSuppliers->save();
     }
 }

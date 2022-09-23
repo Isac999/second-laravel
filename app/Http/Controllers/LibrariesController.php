@@ -10,8 +10,8 @@ class LibrariesController extends Controller
 {
     public function index() {
         
-        $books = new Libraries();
-        $query = $books->paginate(3);
+        $libraries = new Libraries();
+        $query = $libraries->paginate(3);
         //dd($query);
         $header = Schema::getColumnListing('libraries');
         $header = array_diff($header, ['created_at', 'updated_at']);
@@ -30,5 +30,16 @@ class LibrariesController extends Controller
             $libraries = new Libraries();
             $query = $libraries->find($target)->delete();
         }
+    }
+
+    public function insert(Request $request) {
+        $libraries = new Libraries();
+
+        foreach ($request->listData as $item) {
+            $column = $item[0];
+            $value = $item[1];
+            $libraries->$column = $value;            
+        }
+        $libraries->save();
     }
 }
