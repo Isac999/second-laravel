@@ -33,7 +33,13 @@ class BooksController extends Controller
     }
 
     public function insert(Request $request) {
-        print_r($request->listData[0]);
-        //author	genre	id	library_id	name
+        $books = new Books();
+
+        foreach ($request->listData as $item) {
+            $column = $item[0];
+            $value = $item[1];
+            $books->$column = $value;            
+        }
+        $books->save();
     }
 }
