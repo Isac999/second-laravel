@@ -140,14 +140,26 @@ function sendIdRemove(id) {
 };
 
 function sendDataCreated(list) {
-    const body = {
-        'listData': list
-    };
+    const thList = document.querySelectorAll('th');
+    let listNamesColumns = {};
+    let count = 0;
 
+    thList.forEach((element) => {
+        if (element.id != 'actions') {
+            listNamesColumns[count] = [element.innerText, list[count]]
+            count += 1;
+        }
+    })
+
+    const body = {
+        'listData': listNamesColumns
+    };
+    
     let path = window.location.pathname == '/admin/' ? '/admin/books' : window.location.pathname;
+    if (path == '/admin') { path = '/admin/books' }
 
     url = 'http://localhost:8000' + path;
-
+    
     const request = new XMLHttpRequest();
     request.open('POST', url, true);
     request.setRequestHeader("Content-Type", "application/json");
@@ -157,5 +169,6 @@ function sendDataCreated(list) {
     request.onload = function() {
         console.log(this.responseText);
     }
+    
     return request.responseText;
 }

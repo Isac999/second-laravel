@@ -31,4 +31,9 @@ class BooksController extends Controller
             $query = $books->find($target)->delete();
         }
     }
+
+    public function insert(Request $request) {
+        print_r($request->listData[0]);
+        //author	genre	id	library_id	name
+    }
 }

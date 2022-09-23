@@ -14,7 +14,7 @@
                         @foreach($header as $line)
                             <th> {{ $line }} </th>
                         @endforeach
-                        <th colspan='2'>
+                        <th colspan='2' id='actions'>
                             Action 
                             <button type='button' class='btn btn-success ml-2' id='add'>
                                 Add
