@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Libraries;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class LibrariesController extends Controller
 {
@@ -12,8 +13,13 @@ class LibrariesController extends Controller
         
         $libraries = new Libraries();
         $query = $libraries->paginate(3);
-        //dd($query);
-        $header = Schema::getColumnListing('libraries');
+
+        $db_columns = DB::select('SHOW COLUMNS FROM '. 'libraries');
+        $header = array_map(function($db_column) {
+            return $db_column->Field;
+        }, $db_columns);
+
+        //$header = Schema::getColumnListing('libraries');
         $header = array_diff($header, ['created_at', 'updated_at']);
 
         return view('admin', 

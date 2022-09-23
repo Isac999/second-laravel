@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Suppliers;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class SuppliersController extends Controller
 {
@@ -12,8 +13,13 @@ class SuppliersController extends Controller
         
         $suppliers = new Suppliers();
         $query = $suppliers->paginate(3);
-        //dd($query);
-        $header = Schema::getColumnListing('suppliers');
+
+        $db_columns = DB::select('SHOW COLUMNS FROM '. 'suppliers');
+        $header = array_map(function($db_column) {
+            return $db_column->Field;
+        }, $db_columns);
+
+        //$header = Schema::getColumnListing('suppliers');
         $header = array_diff($header, ['created_at', 'updated_at']);
 
         return view('admin', 

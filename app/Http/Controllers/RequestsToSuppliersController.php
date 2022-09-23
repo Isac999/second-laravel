@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RequestsToSuppliers;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class RequestsToSuppliersController extends Controller
 {
@@ -12,8 +13,13 @@ class RequestsToSuppliersController extends Controller
         
         $requestsToSuppliers = new RequestsToSuppliers();
         $query = $requestsToSuppliers->paginate(3);
-        //dd($query);
-        $header = Schema::getColumnListing('requests_to_suppliers');
+
+        $db_columns = DB::select('SHOW COLUMNS FROM '. 'requests_to_suppliers');
+        $header = array_map(function($db_column) {
+            return $db_column->Field;
+        }, $db_columns);
+
+        //$header = Schema::getColumnListing('requests_to_suppliers');
         $header = array_diff($header, ['created_at', 'updated_at']);
 
         return view('admin', 

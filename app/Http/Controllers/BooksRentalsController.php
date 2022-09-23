@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\BooksRentals;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class BooksRentalsController extends Controller
 {
@@ -12,8 +13,13 @@ class BooksRentalsController extends Controller
         
         $books = new BooksRentals();
         $query = $books->paginate(3);
-        //dd($query);
-        $header = Schema::getColumnListing('books_rentals');
+
+        //$header = Schema::getColumnListing('books_rentals');
+        $db_columns = DB::select('SHOW COLUMNS FROM '. 'books_rentals');
+        $header = array_map(function($db_column) {
+            return $db_column->Field;
+        }, $db_columns);
+
         $header = array_diff($header, ['created_at', 'updated_at']);
 
         return view('admin', 
