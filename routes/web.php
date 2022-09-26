@@ -24,12 +24,16 @@ Route::prefix('/admin')->group(function() {
     ->name('admin.books');
     Route::post('/books', [App\Http\Controllers\BooksController::class, 'insert'])
     ->name('admin.books');
+    Route::patch('/books', [App\Http\Controllers\BooksController::class, 'update'])
+    ->name('admin.books');
 
     Route::get('/customers', [App\Http\Controllers\CustomersController::class, 'index'])
     ->name('admin.customers');
     Route::delete('/customers', [App\Http\Controllers\CustomersController::class, 'delete'])
     ->name('admin.customers');
     Route::post('/customers', [App\Http\Controllers\CustomersController::class, 'insert'])
+    ->name('admin.customers');
+    Route::patch('/customers', [App\Http\Controllers\CustomersController::class, 'update'])
     ->name('admin.customers');
 
     Route::get('/books_rentals', [App\Http\Controllers\BooksRentalsController::class, 'index'])
@@ -38,12 +42,16 @@ Route::prefix('/admin')->group(function() {
     ->name('admin.booksRentals');
     Route::post('/books_rentals', [App\Http\Controllers\BooksRentalsController::class, 'insert'])
     ->name('admin.booksRentals');
+    Route::patch('/books_rentals', [App\Http\Controllers\BooksRentalsController::class, 'update'])
+    ->name('admin.booksRentals');
 
     Route::get('/libraries', [App\Http\Controllers\LibrariesController::class, 'index'])
     ->name('admin.libraries');
     Route::delete('/libraries', [App\Http\Controllers\LibrariesController::class, 'delete'])
     ->name('admin.libraries');
     Route::post('/libraries', [App\Http\Controllers\LibrariesController::class, 'insert'])
+    ->name('admin.libraries');
+    Route::patch('/libraries', [App\Http\Controllers\LibrariesController::class, 'update'])
     ->name('admin.libraries');
 
     Route::get('/requests_to_suppliers', [App\Http\Controllers\RequestsToSuppliersController::class, 'index'])
@@ -52,11 +60,15 @@ Route::prefix('/admin')->group(function() {
     ->name('admin.requestsToSuppliers');
     Route::post('/requests_to_suppliers', [App\Http\Controllers\RequestsToSuppliersController::class, 'insert'])
     ->name('admin.requestsToSuppliers');
+    Route::patch('/requests_to_suppliers', [App\Http\Controllers\RequestsToSuppliersController::class, 'update'])
+    ->name('admin.requestsToSuppliers');
 
     Route::get('/suppliers', [App\Http\Controllers\SuppliersController::class, 'index'])
     ->name('admin.suppliers');
     Route::delete('/suppliers', [App\Http\Controllers\SuppliersController::class, 'delete'])
     ->name('admin.suppliers');
     Route::post('/suppliers', [App\Http\Controllers\SuppliersController::class, 'insert'])
+    ->name('admin.suppliers');
+    Route::patch('/suppliers', [App\Http\Controllers\SuppliersController::class, 'update'])
     ->name('admin.suppliers');
 });
