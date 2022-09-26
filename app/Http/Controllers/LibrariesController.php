@@ -48,4 +48,13 @@ class LibrariesController extends Controller
         }
         $libraries->save();
     }
+
+    public function update(Request $request) {
+        $libraries = new Libraries();
+        $target = $libraries->find($request->listData[0]);
+
+        $target->localization = $request->listData[1];
+
+        $target->save();
+    }
 }

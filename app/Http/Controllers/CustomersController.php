@@ -48,4 +48,15 @@ class CustomersController extends Controller
         }
         $customers->save();
     }
+
+    public function update(Request $request) {
+        $customers = new Customers();
+        $target = $customers->find($request->listData[0]);
+
+        $target->name = $request->listData[1];
+        $target->birth = $request->listData[2];
+        $target->city = $request->listData[3];
+
+        $target->save();
+    }
 }

@@ -48,4 +48,16 @@ class RequestsToSuppliersController extends Controller
         }
         $requestsToSuppliers->save();
     }
+
+    public function update(Request $request) {
+        $requestsToSuppliers = new RequestsToSuppliers();
+        $target = $requestsToSuppliers->find($request->listData[0]);
+
+        $target->book_id = $request->listData[1];
+        $target->request_date = $request->listData[2];
+        $target->delivery_confirmation = $request->listData[3];
+        $target->corporate_id = $request->listData[4];
+
+        $target->save();
+    }
 }
