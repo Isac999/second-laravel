@@ -12,7 +12,7 @@ Route::get('/register', [App\Http\Controllers\RegisterController::class, 'index'
 Route::post('/register', [App\Http\Controllers\RegisterController::class, 'createNewAccount'])
 ->name('register.index');
 
-Route::prefix('/admin')->group(function() {
+Route::middleware('authentication')->prefix('/admin')->group(function() {
     Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])
     ->name('admin.index');
     Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'index'])
