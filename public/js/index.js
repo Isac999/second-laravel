@@ -176,7 +176,7 @@ function sendDataCreated(list) {
     
     let path = window.location.pathname == '/admin/' ? '/admin/books' : window.location.pathname;
     if (path == '/admin') { path = '/admin/books' }
-
+    
     url = 'http://localhost:8000' + path;
     
     const request = new XMLHttpRequest();

@@ -39,14 +39,15 @@ class LibrariesController extends Controller
     }
 
     public function insert(Request $request) {
-        $libraries = new Libraries();
+        $list = [];
 
         foreach ($request->listData as $item) {
-            $column = $item[0];
-            $value = $item[1];
-            $libraries->$column = $value;            
+
+            list($column, $value) = $item;
+            $list[$column] = $value;
         }
-        $libraries->save();
+        
+        Libraries::create($list);
     }
 
     public function update(Request $request) {

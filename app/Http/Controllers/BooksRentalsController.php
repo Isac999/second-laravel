@@ -39,14 +39,15 @@ class BooksRentalsController extends Controller
     }
 
     public function insert(Request $request) {
-        $booksRentals = new BooksRentals();
+        $list = [];
 
         foreach ($request->listData as $item) {
-            $column = $item[0];
-            $value = $item[1];
-            $booksRentals->$column = $value;            
+
+            list($column, $value) = $item;
+            $list[$column] = $value;
         }
-        $booksRentals->save();
+        
+        BooksRentals::create($list);
     }
 
     public function update(Request $request) {

@@ -39,14 +39,15 @@ class SuppliersController extends Controller
     }
 
     public function insert(Request $request) {
-        $suppliers = new Suppliers();
+        $list = [];
 
         foreach ($request->listData as $item) {
-            $column = $item[0];
-            $value = $item[1];
-            $suppliers->$column = $value;            
+
+            list($column, $value) = $item;
+            $list[$column] = $value;
         }
-        $suppliers->save();
+        
+        Suppliers::create($list);
     }
 
     public function update(Request $request) {

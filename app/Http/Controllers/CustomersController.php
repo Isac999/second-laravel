@@ -39,14 +39,15 @@ class CustomersController extends Controller
     }
 
     public function insert(Request $request) {
-        $customers = new Customers();
+        $list = [];
 
         foreach ($request->listData as $item) {
-            $column = $item[0];
-            $value = $item[1];
-            $customers->$column = $value;            
+
+            list($column, $value) = $item;
+            $list[$column] = $value;
         }
-        $customers->save();
+        
+        Customers::create($list);
     }
 
     public function update(Request $request) {
