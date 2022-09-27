@@ -33,8 +33,7 @@ class LibrariesController extends Controller
         $target = $request->id;
         
         if ($target != null) {
-            $libraries = new Libraries();
-            $query = $libraries->find($target)->delete();
+            $query = Libraries::findOrFail($target)->delete();
         }
     }
 

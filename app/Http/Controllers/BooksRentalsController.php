@@ -33,8 +33,7 @@ class BooksRentalsController extends Controller
         $target = $request->id;
         
         if ($target != null) {
-            $booksRentals = new BooksRentals();
-            $query = $booksRentals->find($target)->delete();
+            $query = BooksRentals::findOrFail($target)->delete();
         }
     }
 

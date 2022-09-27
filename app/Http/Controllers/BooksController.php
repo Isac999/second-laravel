@@ -33,8 +33,7 @@ class BooksController extends Controller
         $target = $request->id;
         
         if ($target != null) {
-            $books = new Books();
-            $query = $books->find($target)->delete();
+            $query = Books::findOrFail($target)->delete();
         }
     }
 

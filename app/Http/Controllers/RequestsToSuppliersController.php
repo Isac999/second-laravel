@@ -33,8 +33,7 @@ class RequestsToSuppliersController extends Controller
         $target = $request->id;
         
         if ($target != null) {
-            $requestsToSuppliers = new RequestsToSuppliers();
-            $query = $requestsToSuppliers->find($target)->delete();
+            $query = RequestsToSuppliers::findOrFail($target)->delete();
         }
     }
 

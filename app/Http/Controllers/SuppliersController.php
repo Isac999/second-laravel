@@ -33,8 +33,7 @@ class SuppliersController extends Controller
         $target = $request->id;
         
         if ($target != null) {
-            $suppliers = new Suppliers();
-            $query = $suppliers->find($target)->delete();
+            $query = Suppliers::findOrFail($target)->delete();
         }
     }
 

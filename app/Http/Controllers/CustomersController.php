@@ -33,8 +33,7 @@ class CustomersController extends Controller
         $target = $request->id;
         
         if ($target != null) {
-            $customers = new Customers();
-            $query = $customers->find($target)->delete();
+            $query = Customers::findOrFail($target)->delete();
         }
     }
 
