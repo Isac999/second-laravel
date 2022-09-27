@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Libraries extends Model
 {
     use HasFactory;
+    protected $fillable = ['localization'];
 }
