@@ -51,8 +51,7 @@ class BooksRentalsController extends Controller
     }
 
     public function update(Request $request) {
-        $booksRentals = new BooksRentals();
-        $target = $booksRentals->find($request->listData[0]);
+        $target = BooksRentals::findOrFail($request->listData[0]);
 
         $target->book_id = $request->listData[1];
         $target->customer_id = $request->listData[2];

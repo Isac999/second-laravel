@@ -51,8 +51,7 @@ class RequestsToSuppliersController extends Controller
     }
 
     public function update(Request $request) {
-        $requestsToSuppliers = new RequestsToSuppliers();
-        $target = $requestsToSuppliers->find($request->listData[0]);
+        $target = RequestsToSuppliers::findOrFail($request->listData[0]);
 
         $target->book_id = $request->listData[1];
         $target->request_date = $request->listData[2];

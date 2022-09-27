@@ -51,11 +51,9 @@ class LibrariesController extends Controller
     }
 
     public function update(Request $request) {
-        $libraries = new Libraries();
-        $target = $libraries->find($request->listData[0]);
+        $target = Libraries::findOrFail($request->listData[0]);
 
         $target->localization = $request->listData[1];
-
         $target->save();
     }
 }

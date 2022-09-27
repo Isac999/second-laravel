@@ -51,8 +51,7 @@ class CustomersController extends Controller
     }
 
     public function update(Request $request) {
-        $customers = new Customers();
-        $target = $customers->find($request->listData[0]);
+        $target = Customers::findOrFail($request->listData[0]);
 
         $target->name = $request->listData[1];
         $target->birth = $request->listData[2];

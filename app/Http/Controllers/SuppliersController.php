@@ -51,8 +51,7 @@ class SuppliersController extends Controller
     }
 
     public function update(Request $request) {
-        $suppliers = new Suppliers();
-        $target = $suppliers->find($request->listData[0]);
+        $target = Suppliers::findOrFail($request->listData[0]);
 
         $target->corporate_name = $request->listData[1];
         $target->localization = $request->listData[2];
