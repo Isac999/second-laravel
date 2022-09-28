@@ -15,6 +15,6 @@ class LibrariesSeeder extends Seeder
      */
     public function run()
     {
-        App\Models\Libraries::factory()->count(100)->create();
+        \App\Models\Libraries::factory()->count(100)->create();
     }
 }

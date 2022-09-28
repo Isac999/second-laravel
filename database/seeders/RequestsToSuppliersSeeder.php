@@ -15,6 +15,6 @@ class RequestToSuppliersSeeder extends Seeder
      */
     public function run()
     {
-        App\Models\RequestsToSuppliers::factory()->count(100)->create();
+        \App\Models\RequestsToSuppliers::factory()->count(100)->create();
     }
 }
