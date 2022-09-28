@@ -12,7 +12,7 @@ class LibrariesController extends Controller
     public function index() {
         
         $libraries = new Libraries();
-        $query = $libraries->paginate(3);
+        $query = $libraries->paginate(15);
 
         $db_columns = DB::select('SHOW COLUMNS FROM '. 'libraries');
         $header = array_map(function($db_column) {

@@ -12,7 +12,7 @@ class SuppliersController extends Controller
     public function index() {
         
         $suppliers = new Suppliers();
-        $query = $suppliers->paginate(3);
+        $query = $suppliers->paginate(15);
 
         $db_columns = DB::select('SHOW COLUMNS FROM '. 'suppliers');
         $header = array_map(function($db_column) {

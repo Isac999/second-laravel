@@ -12,7 +12,7 @@ class RequestsToSuppliersController extends Controller
     public function index() {
         
         $requestsToSuppliers = new RequestsToSuppliers();
-        $query = $requestsToSuppliers->paginate(3);
+        $query = $requestsToSuppliers->paginate(15);
 
         $db_columns = DB::select('SHOW COLUMNS FROM '. 'requests_to_suppliers');
         $header = array_map(function($db_column) {

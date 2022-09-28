@@ -12,7 +12,7 @@ class CustomersController extends Controller
     public function index() {
         
         $books = new Customers();
-        $query = $books->paginate(3);
+        $query = $books->paginate(15);
         //dd($query);
         //$header = Schema::getColumnListing('customers');
         $db_columns = DB::select('SHOW COLUMNS FROM '. 'customers');

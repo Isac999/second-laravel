@@ -12,7 +12,7 @@ class BooksRentalsController extends Controller
     public function index() {
         
         $books = new BooksRentals();
-        $query = $books->paginate(3);
+        $query = $books->paginate(15);
 
         //$header = Schema::getColumnListing('books_rentals');
         $db_columns = DB::select('SHOW COLUMNS FROM '. 'books_rentals');

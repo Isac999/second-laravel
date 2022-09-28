@@ -13,7 +13,7 @@ class AdminController extends Controller
     public function index() {
 
         $books = new Books();
-        $query = $books->paginate(3);
+        $query = $books->paginate(15);
 
         $db_columns = DB::select('SHOW COLUMNS FROM '. 'books');
         $header = array_map(function($db_column) {
