@@ -178,7 +178,7 @@ function sendDataCreated(list) {
     if (path == '/admin') { path = '/admin/books' }
     
     url = 'http://localhost:8000' + path;
-    
+    console.log(url);
     const request = new XMLHttpRequest();
     request.open('POST', url, true);
     request.setRequestHeader("Content-Type", "application/json");
