@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('genre');
             $table->string('author');
-            $table->integer('library_id');
+            $table->unsignedInteger('library_id');
+            $table->foreign('library_id')->references('id')->on('libraries');
         });
     }
 

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('book_id');
             $table->date('request_date');
             $table->integer('delivery_confirmation');
-            //$table->integer('corporate_id');
             $table->unsignedInteger('corporate_id');
             $table->foreign('corporate_id')->references('id')->on('suppliers');
         });

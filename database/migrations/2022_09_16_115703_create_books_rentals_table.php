@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('book_id');
-            $table->integer('customer_id');
             $table->date('date');
+            $table->unsignedInteger('customer_id');
+            $table->foreign('customer_id')->references('id')->on('customers');
         });
     }
 
