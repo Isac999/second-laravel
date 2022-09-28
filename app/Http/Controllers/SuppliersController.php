@@ -52,9 +52,11 @@ class SuppliersController extends Controller
     public function update(Request $request) {
         $target = Suppliers::findOrFail($request->listData[0]);
 
-        $target->corporate_name = $request->listData[1];
-        $target->localization = $request->listData[2];
-
+        $target->update([
+            'corporate_name' => $request->listData[1],
+            'localization' => $request->listData[2]
+        ]);
+        
         $target->save();
     }
 }

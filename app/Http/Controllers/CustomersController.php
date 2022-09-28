@@ -52,9 +52,11 @@ class CustomersController extends Controller
     public function update(Request $request) {
         $target = Customers::findOrFail($request->listData[0]);
 
-        $target->name = $request->listData[1];
-        $target->birth = $request->listData[2];
-        $target->city = $request->listData[3];
+        $target->update([
+            'name' => $request->listData[1],
+            'birth' => $request->listData[2],
+            'city' => $request->listData[3]
+        ]);
 
         $target->save();
     }

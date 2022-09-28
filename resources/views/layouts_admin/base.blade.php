@@ -17,6 +17,9 @@
         input {
             max-width: 100px;
         }
+        body > div.row.justify-content-center.mb-5 {
+            max-width: 100%;
+        }
     </style>
 </head>
 <body>

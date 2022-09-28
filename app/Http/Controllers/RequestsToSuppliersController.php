@@ -52,10 +52,12 @@ class RequestsToSuppliersController extends Controller
     public function update(Request $request) {
         $target = RequestsToSuppliers::findOrFail($request->listData[0]);
 
-        $target->book_id = $request->listData[1];
-        $target->request_date = $request->listData[2];
-        $target->delivery_confirmation = $request->listData[3];
-        $target->corporate_id = $request->listData[4];
+        $target->update([
+            'book_id' => $request->listData[1],
+            'request_date' => $request->listData[2],
+            'delivery_confirmation' => $request->listData[3],
+            'corporate_id' => $request->listData[4]
+        ]);
 
         $target->save();
     }

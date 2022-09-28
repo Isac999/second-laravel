@@ -51,14 +51,14 @@ class BooksController extends Controller
     }
 
     public function update(Request $request) {
-        //$books = new Books();
-        //$target = $books->find($request->listData[0]);
         $target = Books::findOrFail($request->listData[0]);
 
-        $target->name = $request->listData[1];
-        $target->genre = $request->listData[2];
-        $target->author = $request->listData[3];
-        $target->library_id = $request->listData[4];
+        $target->update([
+            'name' => $request->listData[1],
+            'genre' => $request->listData[2],
+            'author' => $request->listData[3],
+            'library_id' => $request->listData[4]
+        ]);
 
         $target->save();
     }

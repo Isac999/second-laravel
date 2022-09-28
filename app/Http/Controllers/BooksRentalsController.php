@@ -52,9 +52,11 @@ class BooksRentalsController extends Controller
     public function update(Request $request) {
         $target = BooksRentals::findOrFail($request->listData[0]);
 
-        $target->book_id = $request->listData[1];
-        $target->customer_id = $request->listData[2];
-        $target->date = $request->listData[3];
+        $target->update([
+            'book_id' => $request->listData[1],
+            'customer_id' => $request->listData[2],
+            'date' => $request->listData[3]
+        ]);
 
         $target->save();
     }
