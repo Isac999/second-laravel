@@ -17,7 +17,10 @@ class RequestsToSuppliersFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'book_id' => $this->faker->randomDigit,
+            'request_date' => $this->faker->dateTime,
+            'delivery_confirmation' => $this->faker->randomDigit,
+            'corporate_id' => $this->faker->randomDigit
         ];
     }
 }

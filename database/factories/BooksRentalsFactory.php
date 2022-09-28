@@ -17,7 +17,9 @@ class Books_RentalsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'book_id' => $this->faker->randomDigit,	
+            'customer_id' => $this->faker->randomDigit,
+            'date' => $this->faker->dateTime
         ];
     }
 }

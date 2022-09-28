@@ -17,7 +17,7 @@ class LibrariesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'localization' => $this->faker->name
         ];
     }
 }
