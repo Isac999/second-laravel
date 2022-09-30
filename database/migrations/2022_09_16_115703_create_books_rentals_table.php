@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('books_rentals', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('book_id');
+            $table->unsignedInteger('book_id');
             $table->date('date');
             $table->unsignedInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('book_id')->references('id')->on('books');
         });
     }
 
