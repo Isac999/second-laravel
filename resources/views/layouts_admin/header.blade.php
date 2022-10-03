@@ -27,6 +27,9 @@
                 <li class="nav-item">
                 <a class="nav-link text-white" id="libraries" href="{{ route('admin.authors') }}">Authors</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" id="libraries" href="{{ route('admin.categories') }}">Categories</a>
+                </li>
             </ul>
         </div>
         <a class="navbar-brand text-white font-weight-bold" href="{{ route('admin.logout') }}">Logout</a>

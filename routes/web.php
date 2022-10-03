@@ -80,4 +80,13 @@ Route::middleware('authentication')->prefix('/admin')->group(function() {
     ->name('admin.authors');
     Route::patch('/authors', [App\Http\Controllers\AuthorsController::class, 'update'])
     ->name('admin.authors');
+
+    Route::get('/categories', [App\Http\Controllers\CategoriesController::class, 'index'])
+    ->name('admin.categories');
+    Route::delete('/categories', [App\Http\Controllers\CategoriesController::class, 'delete'])
+    ->name('admin.categories');
+    Route::post('/categories', [App\Http\Controllers\CategoriesController::class, 'insert'])
+    ->name('admin.categories');
+    Route::patch('/categories', [App\Http\Controllers\CategoriesController::class, 'update'])
+    ->name('admin.categories');
 });
