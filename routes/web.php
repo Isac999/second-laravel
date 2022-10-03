@@ -71,4 +71,7 @@ Route::middleware('authentication')->prefix('/admin')->group(function() {
     ->name('admin.suppliers');
     Route::patch('/suppliers', [App\Http\Controllers\SuppliersController::class, 'update'])
     ->name('admin.suppliers');
+
+    Route::get('/authors', [App\Htpp\Controllers\AuthorsController::class, 'index'])
+    ->name('admin.authors');
 });
