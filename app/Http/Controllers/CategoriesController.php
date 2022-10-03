@@ -54,7 +54,7 @@ class CategoriesController extends Controller
         $target = Categories::findOrFail($request->listData[0]);
 
         $target->update([
-            'name' => $request->listData[1]
+            'category' => $request->listData[1]
         ]);
 
         $target->save();
