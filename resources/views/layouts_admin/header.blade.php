@@ -25,10 +25,10 @@
                 <a class="nav-link text-white" id="libraries" href="{{ route('admin.libraries') }}">Libraries</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-white" id="libraries" href="{{ route('admin.authors') }}">Authors</a>
+                <a class="nav-link text-white" id="authors" href="{{ route('admin.authors') }}">Authors</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" id="libraries" href="{{ route('admin.categories') }}">Categories</a>
+                    <a class="nav-link text-white" id="categories" href="{{ route('admin.categories') }}">Categories</a>
                 </li>
             </ul>
         </div>

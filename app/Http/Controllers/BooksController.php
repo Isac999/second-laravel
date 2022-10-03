@@ -56,8 +56,8 @@ class BooksController extends Controller
         $target->update([
             'name' => $request->listData[1],
             'genre' => $request->listData[2],
-            'author' => $request->listData[3],
-            'library_id' => $request->listData[4]
+            //'author' => $request->listData[3],
+            'library_id' => $request->listData[3]
         ]);
 
         $target->save();
