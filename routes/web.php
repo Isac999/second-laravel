@@ -74,4 +74,10 @@ Route::middleware('authentication')->prefix('/admin')->group(function() {
 
     Route::get('/authors', [App\Http\Controllers\AuthorsController::class, 'index'])
     ->name('admin.authors');
+    Route::delete('/authors', [App\Http\Controllers\AuthorsController::class, 'delete'])
+    ->name('admin.authors');
+    Route::post('/authors', [App\Http\Controllers\AuthorsController::class, 'insert'])
+    ->name('admin.authors');
+    Route::patch('/authors', [App\Http\Controllers\AuthorsController::class, 'update'])
+    ->name('admin.authors');
 });
