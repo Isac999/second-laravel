@@ -9,4 +9,8 @@ class Libraries extends Model
 {
     use HasFactory;
     protected $fillable = ['localization'];
+
+    public function books() {
+        //return $this->belongsTo(Books::class, 'library_id', 'id');
+    }
 }
